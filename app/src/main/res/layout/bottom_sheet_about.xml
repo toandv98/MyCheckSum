@@ -9,19 +9,31 @@
         style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:layout_gravity="center"
+        android:drawableStart="@drawable/ic_info_outline"
+        android:drawablePadding="@dimen/padding_8dp"
         android:text="@string/item_title_about" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:text="@string/about_app" />
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:text="@string/about_app"
+        android:textSize="@dimen/text_size_small" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_8dp"
-        android:layout_marginBottom="@dimen/margin_24dp"
-        android:text="@string/hash_functions" />
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:text="@string/author"
+        android:textSize="@dimen/text_size_small" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/email"
+        android:autoLink="email"
+        android:textSize="@dimen/text_size_small" />
 </LinearLayout>

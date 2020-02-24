@@ -4,6 +4,7 @@ package com.toandv98.checksum.ui;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -19,7 +20,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.developer.filepicker.model.DialogProperties;
@@ -64,7 +64,7 @@ public class FileFragment extends Fragment {
     public FileFragment() {
     }
 
-    public static FileFragment newInstance() {
+    static FileFragment newInstance() {
         return new FileFragment();
     }
 
@@ -123,7 +123,7 @@ public class FileFragment extends Fragment {
                 mTvEqual.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_error_outline, 0, 0, 0);
             }
             else {
-                mTvEqual.setVisibility(View.INVISIBLE);
+                mTvEqual.setVisibility(View.GONE);
                 mEdtCompare.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_color));
             }
         });
@@ -146,14 +146,14 @@ public class FileFragment extends Fragment {
         mDialog.setDialogSelectionListener(files -> mViewModel.setFilePath(files));
     }
 
-    @OnClick(R.id.btn_file_choose)
-    void onChooseClick() {
-        mDialog.show();
-    }
-
     @OnClick(R.id.btn_file_check)
     void onCheckClick() {
         mViewModel.check(mChipGroup.getCheckedChipId());
+    }
+
+    @OnClick(R.id.btn_file_choose)
+    void onChooseClick() {
+        mDialog.show();
     }
 
     @OnTextChanged(R.id.edt_file_compare)
@@ -176,5 +176,16 @@ public class FileFragment extends Fragment {
         ClipData clipData = ClipData.newPlainText(mTvLabel.getText(), mTvResult.getText());
         mClipboard.setPrimaryClip(clipData);
         Toast.makeText(requireActivity(), R.string.msg_copied, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == FilePickerDialog.EXTERNAL_READ_PERMISSION_GRANT) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                mDialog.show();
+            } else {
+                Toast.makeText(requireActivity(), R.string.required_permission, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
