@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="?android:attr/colorBackground" />
+            <stroke
+                android:width="@dimen/stroke_1dp"
+                android:color="@color/color_divider" />
+            <corners android:radius="@dimen/padding_4dp" />
+            <padding
+                android:bottom="@dimen/padding_12dp"
+                android:left="@dimen/padding_12dp"
+                android:right="@dimen/padding_12dp"
+                android:top="@dimen/padding_12dp" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/padding_minus_12dp"
+        android:drawable="?android:attr/selectableItemBackground"
+        android:left="@dimen/padding_minus_12dp"
+        android:right="@dimen/padding_minus_12dp"
+        android:top="@dimen/padding_minus_12dp" />
+</layer-list>

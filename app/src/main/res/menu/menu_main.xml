@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/item_clear"
+        android:icon="@drawable/ic_delete_sweep"
+        android:title="@string/item_title_clear"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+
+    <item
+        android:id="@+id/item_about"
+        android:icon="@drawable/ic_info_outline"
+        android:title="@string/item_title_about"
+        app:showAsAction="always" />
+</menu>

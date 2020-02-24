@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TextFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_text_input"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:hint="@string/hint_input_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_edit"
+        app:startIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_48dp"
+            tools:ignore="Autofill,LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/btn_text_paste_input"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_top_button_paste"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/padding_12dp"
+        android:src="@drawable/ic_content_paste"
+        app:layout_constraintBottom_toBottomOf="@+id/tl_text_input"
+        app:layout_constraintEnd_toEndOf="@+id/tl_text_input"
+        app:layout_constraintTop_toTopOf="@+id/tl_text_input"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_text_compare"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:hint="@string/hint_compare_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_text_input"
+        app:startIconDrawable="@drawable/ic_compare_arrows"
+        app:startIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_text_compare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_48dp"
+            tools:ignore="Autofill,LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/btn_text_paste_compare"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_top_button_paste"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/padding_12dp"
+        android:src="@drawable/ic_content_paste"
+        app:layout_constraintBottom_toBottomOf="@+id/tl_text_compare"
+        app:layout_constraintEnd_toEndOf="@+id/tl_text_compare"
+        app:layout_constraintTop_toTopOf="@+id/tl_text_compare"
+        tools:ignore="ContentDescription" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_hash_text_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layoutAnimation="@anim/layout_animation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_equal" />
+
+    <TextView
+        android:id="@+id/tv_text_equal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:drawablePadding="@dimen/padding_8dp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_text_compare" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
